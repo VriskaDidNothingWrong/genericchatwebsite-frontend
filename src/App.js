@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import {
   BrowserRouter as Router,
-  Route
+  Route,
+  Switch
 } from 'react-router-dom';
 
-import FrontPageContainer from './containers/FrontPageContainer.js';
-import ChatViewContainer from './containers/ChatViewContainer.js';
+import FrontPageContainer from 'containers/FrontPageContainer';
+import ChatViewContainer from 'containers/ChatViewContainer';
 
 import './App.css';
 
@@ -23,11 +24,13 @@ class App extends Component {
     return (
       <Router>
         <div className="app">
-          <Route path="/" exact component={FrontPageContainer}/>
-          {FRONT_PAGE_ROUTES.map((route_name) => {
-            return <Route path={"/" + route_name} key={route_name} exact component={FrontPageContainer}/>;
-          })}
-          <Route exact path="/:chat_name:" component={ChatViewContainer}/>
+          <Switch>
+            <Route exact path="/chat/:chat_name" component={ChatViewContainer}/>
+            {FRONT_PAGE_ROUTES.map((route_name) => {
+              return <Route path={"/" + route_name} key={route_name} exact component={FrontPageContainer}/>;
+            })}
+            <Route component={FrontPageContainer}/>
+          </Switch>
         </div>
       </Router>
     );
