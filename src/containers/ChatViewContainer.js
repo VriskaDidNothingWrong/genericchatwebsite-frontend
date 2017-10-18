@@ -3,7 +3,7 @@ import React, { PureComponent } from 'react';
 import { withRouter } from 'react-router';
 import { connect } from 'react-redux';
 
-import ChatView from '../components/ChatView';
+import ChatView from 'components/ChatView';
 
 class ChatViewContainer extends PureComponent {
   componentWillMount () {

@@ -1,4 +1,4 @@
-import apiLogin from '../api/login';
+import apiLogin from 'api/login';
 
 // Defaults
 

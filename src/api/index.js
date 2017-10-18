@@ -1,5 +1,5 @@
-import store from '../store';
-import { actions as profileActions } from '../reducks/profile';
+import store from 'store';
+import { actions as profileActions } from 'reducks/profile';
 
 const handleErrors = (response, callback) => {
   if (response.error) {

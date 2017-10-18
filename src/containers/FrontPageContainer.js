@@ -4,14 +4,14 @@ import { bindActionCreators } from 'redux';
 import { withRouter } from 'react-router';
 import { connect } from 'react-redux';
 
-import { PropsRoute } from '../util/routes';
+import { PropsRoute } from 'util/routes';
 
-import { actions as profileActions } from '../reducks/profile';
+import { actions as profileActions } from 'reducks/profile';
 
-import ChatList from '../components/ChatList';
-import SiteHeader from '../components/SiteHeader';
-import ErrorDisplay from '../components/ErrorDisplay';
-import LoginPage from '../components/LoginPage';
+import ChatList from 'components/ChatList';
+import SiteHeader from 'components/SiteHeader';
+import ErrorDisplay from 'components/ErrorDisplay';
+import LoginPage from 'components/LoginPage';
 
 const FrontPageContainer = ({ chats, match, doLogin, doRegister, last_error, current_user }) => {
   return <div>
