@@ -1,0 +1,17 @@
+@import '../common.scss';
+
+header {
+    padding-top: $header_top_padding;
+
+    h1 {
+        margin: 0;
+    }
+
+    .users_online {
+        float: right;
+        p {
+            margin: 5px 0;
+            font-size: .75rem;
+        }
+    }
+}

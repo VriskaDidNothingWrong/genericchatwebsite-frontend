@@ -1,19 +1,35 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import {
+  BrowserRouter as Router,
+  Route
+} from 'react-router-dom';
+
+import FrontPageContainer from './containers/FrontPageContainer.js';
+import ChatViewContainer from './containers/ChatViewContainer.js';
+
 import './App.css';
 
+const FRONT_PAGE_ROUTES = [
+  'log_in',
+  'log_out',
+  'groups',
+  'chats',
+  'characters',
+  'settings'
+]
+
 class App extends Component {
-  render() {
+  render () {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
+      <Router>
+        <div className="app">
+          <Route path="/" exact component={FrontPageContainer}/>
+          {FRONT_PAGE_ROUTES.map((route_name) => {
+            return <Route path={"/" + route_name} key={route_name} exact component={FrontPageContainer}/>;
+          })}
+          <Route exact path="/:chat_name:" component={ChatViewContainer}/>
+        </div>
+      </Router>
     );
   }
 }
